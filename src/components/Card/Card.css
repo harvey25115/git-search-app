@@ -1,0 +1,50 @@
+.card {
+  width: 30%;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.card-name {
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-description {
+  color: grey;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-star {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: normal;
+}
+
+.card-star > img {
+  width: 16px;
+}
+
+/* tablet size */
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+/* mobile size */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+}
