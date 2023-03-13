@@ -1,0 +1,30 @@
+.page-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.page-container > * {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.page-container > *:not(.selected):hover {
+  cursor: pointer;
+  background-color: #eff5f5;
+  color: black;
+}
+
+.page-icon {
+  width: 100%;
+}
+
+.selected {
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+}
