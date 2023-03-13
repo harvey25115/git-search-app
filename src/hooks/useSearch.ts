@@ -38,6 +38,7 @@ async function fetcher(url: string) {
 /**
  * Calling Github Search API using SWR
  * has caching and revalidation features
+ * API is not called when search key is empty
  */
 export default function useSearch() {
   const [searchState, dispatch] = useReducer(reducer, initialState);
