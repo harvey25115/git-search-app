@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# GitHub Search Repository App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is bootstrapped with create-react-app (typescript).
+I made the design as responsive (desktop, mobile, tablet) using vanilla CSS.
+I attempted to use CSS module to avoid style clashes. But since this project is small and the design is simple, I am contented to use just vanilla CSS.
+
+For the data fetching, I decided to use SWR to have a caching and revalidation features.
+And decided to use reducer to manage complex state.
+
+For pagination, I did not use any plugins/tools. The design was to display maximum of 40 results per page and 5 pages per screen. I also consider the rate limit of Github API usage (1000 results).
+
+For the throttle feature, since the page and search function calls the API. I have applied throttling considering also the rate limit of Github API of 10 requests per minute.
+
+For the folder structure I decided to organize the project by components, page, hooks and interfaces.
+
+Tech Used:
+
+- React
+- Typescript
+- SWR
 
 ## Available Scripts
 
