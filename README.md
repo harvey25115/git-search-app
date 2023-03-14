@@ -13,7 +13,7 @@ For the throttle feature, since the page and search function calls the API. I ha
 
 For the folder structure I decided to organize the project by components, page, hooks and interfaces.
 
-I have executed E2E testing to for the following functionalities:
+I have executed E2E testing for the following functionalities:
 
 - Search
 - Pagination
