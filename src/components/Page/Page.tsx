@@ -2,7 +2,7 @@ import "./Page.css";
 import { PageInfo } from "../../interfaces/page-info.interface";
 
 // constants
-const MAX_ITEMS_PER_PAGE = 25;
+const MAX_ITEMS_PER_PAGE = 40;
 const MAX_REPOS = 1000;
 const MAX_PAGE_SIZE = 5;
 
@@ -20,7 +20,7 @@ export default function Page({ resultCount, currentPage, setPage }: PageInfo) {
       // if repoCount is more than 1000 (github can accomodate 1000 results)
       pageCount = Math.trunc(MAX_REPOS / MAX_ITEMS_PER_PAGE);
     } else {
-      pageCount = Math.trunc(resultCount / MAX_ITEMS_PER_PAGE);
+      pageCount = Math.ceil(resultCount / MAX_ITEMS_PER_PAGE);
     }
   }
 
@@ -56,16 +56,29 @@ export default function Page({ resultCount, currentPage, setPage }: PageInfo) {
     }
   };
 
-  // not rendered if pageCount is 0
-  return pageCount ? (
+  // not rendered if pageCount is 0 or 1
+  return pageCount > 1 ? (
     <ul className="page-container">
-      <li onClick={goToPrevPage}>
-        <img src="/icons8-back-48.png" alt="Previous" className="page-icon" />
+      {/* hide previous button if current page is 1 */}
+      <li onClick={goToPrevPage} className={currentPage === 1 ? "hidden" : ""}>
+        <img
+          src="/icons8-back-48.png"
+          alt="Previous"
+          className="page-icon previous"
+        />
       </li>
       {/* render page */}
       {pageList.slice(min, max)}
-      <li onClick={goToNextPage}>
-        <img src="/icons8-forward-48.png" alt="Next" className="page-icon" />
+      {/* hide next button if current page is the last page */}
+      <li
+        onClick={goToNextPage}
+        className={currentPage === pageCount ? "hidden" : ""}
+      >
+        <img
+          src="/icons8-forward-48.png"
+          alt="Next"
+          className="page-icon next"
+        />
       </li>
     </ul>
   ) : null;
